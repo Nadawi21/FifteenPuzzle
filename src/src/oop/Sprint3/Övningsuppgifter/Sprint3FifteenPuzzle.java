@@ -4,12 +4,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class FifteenPuzzle extends JFrame {
+public class Sprint3FifteenPuzzle extends JFrame {
 
-    public FifteenPuzzle() {
+    public Sprint3FifteenPuzzle() {
         
-//Skapar panel och knappar
+//Skapar paneler och knappar
+
     JPanel jp = new JPanel();
+    JPanel jpNorth = new JPanel();
+    JPanel jpSouth = new JPanel();
 
     JButton jb = new JButton ("1");
     JButton jb2 = new JButton ("2");
@@ -27,32 +30,38 @@ public class FifteenPuzzle extends JFrame {
     JButton jb14 = new JButton ("14");
     JButton jb15 = new JButton ("15");
     JButton jb16 = new JButton (" ");
+    JButton jb17 = new JButton ("Nytt spel");
 
 //lägger till panelen och knapparna
-    
-        this.add(jp);
 
-    jp.add(jb);
-    jp.add(jb2);
-    jp.add(jb3);
-    jp.add(jb4);
-    jp.add(jb5);
-    jp.add(jb6);
-    jp.add(jb7);
-    jp.add(jb8);
-    jp.add(jb9);
-    jp.add(jb10);
-    jp.add(jb11);
-    jp.add(jb12);
-    jp.add(jb13);
-    jp.add(jb14);
-    jp.add(jb15);
-    jp.add(jb16);
+
+        this.add(jp);
+        jp.add(jpNorth,BorderLayout.NORTH);
+        jp.add(jpSouth,BorderLayout.SOUTH);
+
+    jpNorth.add(jb);
+    jpNorth.add(jb2);
+    jpNorth.add(jb3);
+    jpNorth.add(jb4);
+    jpNorth.add(jb5);
+    jpNorth.add(jb6);
+    jpNorth.add(jb7);
+    jpNorth.add(jb8);
+    jpNorth.add(jb9);
+    jpNorth.add(jb10);
+    jpNorth.add(jb11);
+    jpNorth.add(jb12);
+    jpNorth.add(jb13);
+    jpNorth.add(jb14);
+    jpNorth.add(jb15);
+    jpNorth.add(jb16);
+    jpSouth.add(jb17);
     
 //Lägger till layout
-        jp.setLayout(new GridLayout(4,4));
+        jpNorth.setLayout(new GridLayout(4,4));
+       // jpSouth.setLayout(new FlowLayout());
 
-        setSize(200, 200);
+        setSize(400, 200);
         setVisible(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -77,9 +86,10 @@ public class FifteenPuzzle extends JFrame {
    buttonArrayList.add(jb14);
    buttonArrayList.add(jb15);
    buttonArrayList.add(jb16);
+   buttonArrayList.add (jb17);
         
 }
     public static void main(String[] args){
-        FifteenPuzzle inl = new FifteenPuzzle();
+        Sprint3FifteenPuzzle inl = new Sprint3FifteenPuzzle();
     }
 }
