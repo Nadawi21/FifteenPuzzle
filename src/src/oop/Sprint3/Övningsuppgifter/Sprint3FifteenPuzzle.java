@@ -33,10 +33,10 @@ public class Sprint3FifteenPuzzle extends JFrame {
         jb13 = new JButton("13");
         jb14 = new JButton("14");
         jb15 = new JButton("15");
-        jb16 = new JButton(" ");
+        jb16 = new JButton("");
         jb17 = new JButton("Nytt spel");
 
-        // Lägg till panelen och knapparna
+        // Lägg till panelerna och knapparna
         this.add(jp);
         jp.add(jpNorth, BorderLayout.NORTH);
         jp.add(jpSouth, BorderLayout.SOUTH);
@@ -84,7 +84,9 @@ public class Sprint3FifteenPuzzle extends JFrame {
         JButton clickedButton = (JButton) e.getSource();
         ArrayList<JButton> buttonArrayList = getButtonArrayList();
         int clickedIndex = buttonArrayList.indexOf(clickedButton);
-        int emptyIndex = buttonArrayList.indexOf(jb16);
+
+        int emptyIndex = getEmptyIndex(buttonArrayList);
+
 
         // Kontrollera om klickad knapp är bredvid tomma knappen
         if (isAdjacent(clickedIndex, emptyIndex)) {
@@ -93,6 +95,15 @@ public class Sprint3FifteenPuzzle extends JFrame {
             clickedButton.setText("");
             clickedButton.setEnabled(false);
         }
+    }
+
+    private int getEmptyIndex(ArrayList<JButton> buttonArrayList) {
+        for (int i=0; i<buttonArrayList.size(); i++){
+            if (buttonArrayList.get(i).getText().equals("")){
+                return i;
+            }
+        }
+        return 0;
     }
 
     // Metod för att kontrollera om två knappar är intill varandra i griden
