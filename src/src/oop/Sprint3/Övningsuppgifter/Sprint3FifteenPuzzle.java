@@ -95,8 +95,21 @@ public class Sprint3FifteenPuzzle extends JFrame {
             clickedButton.setText("");
             clickedButton.setEnabled(false);
         }
+
+        //Kollar om man vunnit
+        boolean win = true;
+        for (int i=0; i<buttonArrayList.size()-1; i++){
+
+            if (!buttonArrayList.get(i).getText().equals(String.valueOf(i+1))){
+                win = false;
+            }
+        }
+        if (win) {
+           JOptionPane.showMessageDialog(null, "Grattis! du vann.");
+        }
     }
 
+    // Ta reda på indexet för den tomma platsen
     private int getEmptyIndex(ArrayList<JButton> buttonArrayList) {
         for (int i=0; i<buttonArrayList.size(); i++){
             if (buttonArrayList.get(i).getText().equals("")){
@@ -152,7 +165,7 @@ public class Sprint3FifteenPuzzle extends JFrame {
         return buttonArrayList;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[]args) {
         new Sprint3FifteenPuzzle();
     }
 }
