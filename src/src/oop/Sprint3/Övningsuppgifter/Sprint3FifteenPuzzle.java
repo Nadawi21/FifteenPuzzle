@@ -73,7 +73,8 @@ public class Sprint3FifteenPuzzle extends JFrame {
         // Skapar ArrayList
         ArrayList<JButton> buttonArrayList = getButtonArrayList();
 
-        //Blandar brickorna
+
+        //Anropar metoden sim blandar brickorna
         shuffleTiles(buttonArrayList);
 
         // Action listener på "Nytt spel"-knappen för att blanda brickorna
