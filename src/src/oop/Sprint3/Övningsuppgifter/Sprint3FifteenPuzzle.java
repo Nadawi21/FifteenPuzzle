@@ -66,9 +66,15 @@ public class Sprint3FifteenPuzzle extends JFrame {
         setVisible(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        jp.setBackground(Color.LIGHT_GRAY);
+        jpNorth.setBackground(Color.LIGHT_GRAY);
+        jpSouth.setBackground(Color.LIGHT_GRAY);
 
-        // Skapar ArrayList och lägger in alla knappar
+        // Skapar ArrayList
         ArrayList<JButton> buttonArrayList = getButtonArrayList();
+
+        //Blandar brickorna
+        shuffleTiles(buttonArrayList);
 
         // Action listener på "Nytt spel"-knappen för att blanda brickorna
         jb17.addActionListener(e -> shuffleTiles(buttonArrayList));
@@ -79,12 +85,11 @@ public class Sprint3FifteenPuzzle extends JFrame {
         }
     }
 
-    // Metod för att flytta en bricka vid klick
+      // Metod för att flytta en bricka vid klick
     private void moveTile(ActionEvent e) {
         JButton clickedButton = (JButton) e.getSource();
         ArrayList<JButton> buttonArrayList = getButtonArrayList();
         int clickedIndex = buttonArrayList.indexOf(clickedButton);
-
         int emptyIndex = getEmptyIndex(buttonArrayList);
 
 
@@ -106,6 +111,7 @@ public class Sprint3FifteenPuzzle extends JFrame {
         }
         if (win) {
            JOptionPane.showMessageDialog(null, "Grattis! du vann.");
+           this.dispose();
         }
     }
 
@@ -128,7 +134,7 @@ public class Sprint3FifteenPuzzle extends JFrame {
     }
 
     // Metod för att blanda brickorna
-    private void shuffleTiles(ArrayList<JButton> buttonArrayList) {
+        private void shuffleTiles(ArrayList<JButton> buttonArrayList) {
         ArrayList<String> tileValues = new ArrayList<>();
         for (int i = 1; i <= 15; i++) {
             tileValues.add(String.valueOf(i));
